@@ -5,7 +5,7 @@
   <p><%= @book.user.name %></p>
   <p><%= @book.title %></p>
   <p><%= @book.body %></p>
-  <p><%= image_tag 'person.jpg' %></p>
+  <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
   <!--<p><%= @book.user.name %></p>-->
   <!--<p><%= @book.created_at.strftime('%Y/%m/%d') %></p>-->
   <% if @book.user == current_user %>

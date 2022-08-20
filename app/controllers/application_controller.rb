@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   # ユーザ登録・ログイン認証の前にメソッドか実行される
+  # ログインしていないと、ログイン画面へリダイレクトする
+  before_action :authenticate_user!,except: [:top]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 

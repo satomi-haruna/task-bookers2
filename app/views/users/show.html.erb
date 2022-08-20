@@ -2,18 +2,13 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag @user.get_profile_image(100,100) %>
+  <!--↓ログインユーザーIDと、現在のユーザーが一致していたら-->
+  <% if @user == current_user %>
+    <!--編集へ飛ぶ際のマークをFontawesomeで設定が必要？-->
+    <p><%= link_to "プロフィール編集のマーク",edit_user_path(@user) %></p>
+  <% end %>
 </div>
 
 <!--ユーザの投稿一覧-->
-<% @books.each do |book| %>
-<div>
-  <!--bookの画像投稿はないからコメントアウトに-->
-  <!--<%= link_to book_path(book.id) do %>-->
-    <!--<%= image_tag book.get_image %>-->
-  <!--<% end %>-->
-  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p><%= book.title %></p>
-  <p><%= book.body %></p>
-  <p><%= book.user.name %></p>
-</div>
-<% end %>
+<!--↑の記述は部分テンプレートへ-->
+<%= render 'books/list',books:@books %>
