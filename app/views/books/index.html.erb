@@ -1,0 +1,16 @@
+<% @books.each do |book| %>
+<div>
+  <!--<%= link_to book_path(book.id) do %>-->
+    <!--<%= image_tag book.get_image %>-->
+  <!--<% end %>-->
+
+  <!--userの画像は下の一文で表示できている?-->
+  <%= image_tag book.get_image %>
+  <!--<p><%= image_tag 'person.jpg' %></p>-->
+  <!--タイトルとかの題名はついていないからデータ部分だけ記述する-->
+  <!--一覧画面に詳細画面のリンクを設定-->
+  <%= link_to book.title,book_path(book.id) %>
+  <p><%= book.body %></p>
+  <!--<p><%= book.user.name %></p>-->
+</div>
+<% end %>
