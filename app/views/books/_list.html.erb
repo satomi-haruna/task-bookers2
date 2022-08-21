@@ -1,19 +1,23 @@
 <!--部分テンプレートとして、book/indexから移動-->
-<% books.each do |book| %>
-<div>
-  <!--<%= link_to book_path(book.id) do %>-->
-    <!--<%= image_tag book.get_image %>-->
-  <!--<% end %>-->
+<div class="card-list-container py-5">
+  <% books.each do |book| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <!--<%= link_to book_path(book.id) do %>-->
+      <!--<%= image_tag book.get_image, class:"card-img-top"; %>-->
+    <!--<% end %>-->
 
-  <!--userの画像は下の一文で表示できている?-->
-  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <!--タイトルとかの題名はついていないからデータ部分だけ記述する-->
-  <!--一覧画面に詳細画面のリンクを設定-->
-  <%= link_to book.title,book_path(book.id) %>
-  <p><%= book.body %></p>
-  <!--<p><%= book.user.name %></p>-->
+    <div class="card-body">
+      <!--userの画像は下の一文で表示できている?-->
+      <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+      <!--タイトルとかの題名はついていないからデータ部分だけ記述する-->
+      <!--一覧画面に詳細画面のリンクを設定-->
+      <%= link_to book.title,book_path(book.id) %>
+      <p><%= book.body %></p>
+      <!--<p><%= book.user.name %></p>-->
+    </div>
+  </div>
+  <% end %>
+
+  <!--ページネーション-->
+  <%= paginate books %>
 </div>
-<% end %>
-
-<!--ページネーション-->
-<%= paginate books %>
