@@ -71,6 +71,13 @@
     </header>
 
     <main class="mb-auto">
+    <!--successメッセージを表示するために、、-->
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <%= yield %>
     </main>
 

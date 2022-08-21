@@ -1,3 +1,10 @@
+<!--successメッセージ-->
+<% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <!--ユーザの詳細-->
 <div>
   <h3><%= @user.name %></h3>
