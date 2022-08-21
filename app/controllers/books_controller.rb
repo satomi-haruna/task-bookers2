@@ -16,7 +16,8 @@ class BooksController < ApplicationController
 
 
   def index
-    @books = Book.all
+    # ページネーション　すべてのデータではなく1ページ分の数のデータだけ取得する
+    @books = Book.page(params[:page])
   end
 
   def show

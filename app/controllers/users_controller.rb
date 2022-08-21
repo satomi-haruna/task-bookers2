@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
-    @user = User.new
-    @books = @user.books
+    @user = User.find(params[:id])
+    # ページネーション　1ページ分の数だけデータを取得する
+    @books = @user.books.page(params[:page])
     # ↑　userに紐づいているbookがすべて取得、カラムを特定できないので、カラムの操作はできない
   end
 
