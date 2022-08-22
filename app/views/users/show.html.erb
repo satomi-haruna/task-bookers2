@@ -1,21 +1,4 @@
-<!--successメッセージ-->
-<% if flash[:notice] %>
-  <div class="flash">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<!--カリキュラムに記載の分はbooks/indexへ移動。-->
+<!--実際の画面のuser/show＝user詳細は部分テンプレートとして、
+view/users/_user_info.html.erbへ記載-->
 
-<!--ユーザの詳細-->
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <!--↓ログインユーザーIDと、現在のユーザーが一致していたら-->
-  <% if @user == current_user %>
-    <!--編集へ飛ぶ際のマークをFontawesomeで設定が必要？-->
-    <p><%= link_to "プロフィール編集のマーク",edit_user_path(@user) %></p>
-  <% end %>
-</div>
-
-<!--ユーザの投稿一覧-->
-<!--↑の記述は部分テンプレートへ-->
-<%= render 'books/list',books:@books %>

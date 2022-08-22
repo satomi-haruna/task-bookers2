@@ -1,20 +1,33 @@
+<!--user/show → book/index から移動-->
+<!--ユーザの詳細-->
+<div>
+  <h2><%= "User info" %></h2>
+  <%= image_tag user.get_profile_image(100,100) %>
+  <h3><%= user.name %></h3>
+  <!--↓ログインユーザーIDと、現在のユーザーが一致していたら-->
+  <% if user == current_user %>
+    <%= link_to edit_user_path(user),class:"btn btn-edit",method: :get do %>
+      <i class="fa-solid fa-user-gear"></i>
+    <% end %>
+  <% end %>
+</div>
+
 
 <!--book/new.html.erbから移動-->
 <h1>New book</h1>
 <!--エラー表示。1つならerror、複数ならerrors-->
-<% if @book.errors.any? %>
-  <% if @book.errors.count == 1 %>
-    <%= @book.errors.count %> error prohibited this obj from being saved:
+<% if book.errors.any? %>
+  <% if book.errors.count == 1 %>
+    <%= book.errors.count %> error prohibited this obj from being saved:
   <% else %>
-    <%= @book.errors.count %> errors prohibited this obj from being saved:
+    <%= book.errors.count %> errors prohibited this obj from being saved:
   <% end %>
   <ul>
-    <% @book.errors.full_messages.each do |message| %>
+    <% book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
 <% end %>
-
 
 <%= form_with model:@book do |f| %>
   <h4>Title</h4>

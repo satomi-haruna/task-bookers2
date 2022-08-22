@@ -1,1 +1,14 @@
+
+
+<!--カリキュラムではuser/showへ記載になっていた部分-->
+<!--successメッセージ-->
+<% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+
+<!--ユーザの投稿一覧-->
+<!--↑の記述は部分テンプレートへ-->
 <%= render 'list',books: @books %>
