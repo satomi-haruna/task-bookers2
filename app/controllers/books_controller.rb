@@ -33,13 +33,17 @@ class BooksController < ApplicationController
   def index
     # ページネーション　すべてのデータではなく1ページ分の数のデータだけ取得する
     @books = Book.page(params[:page])
-    @book = Book.new
-    # userはログインユーザーを取得したい
-    @user = User.find(params[:id])
+    @book_new = Book.new
+    # bookからuser情報を取得したい、book/indexではログインユーザーを取得したい＝現在のユーザー
+    @user = current_user
   end
 
   def show
     @book = Book.find(params[:id])
+    # 部分テンプレート用にindexで使用したものと同じものを定義
+    @book_new = Book.new
+    # @bookで持ってきた特定userの情報がほしい
+    @user = @book.user
   end
 
   def destroy

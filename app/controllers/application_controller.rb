@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
     # aboutページをサインアウト後の遷移先に設定
     def after_sign_out_path_for(resource_or_scope)
-      user_session_path
+      root_path
     end
 
 

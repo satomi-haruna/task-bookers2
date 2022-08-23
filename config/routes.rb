@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :books,only:[:new,:create,:index,:show,:destroy,:edit,:update]
   # get 'users/show'
   # get 'users/edit'
-  resources :users,only:[:show,:edit,:update]
+  resources :users,only:[:show,:edit,:update,:index]
 
   get "homes/about" => "homes#about",as:'about'
 

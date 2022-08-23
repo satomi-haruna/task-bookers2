@@ -6,6 +6,15 @@ class UsersController < ApplicationController
     # ↑　userに紐づいているbookがすべて取得、カラムを特定できないので、カラムの操作はできない
   end
 
+  # Usersの表示のためindexを作成
+  def index
+    # ページネーション　すべてのデータではなく1ページ分の数のデータだけ取得する
+    @users = User.page(params[:page])
+    # 部分テンプレートのためにbook/index同様に記述
+    @book_new = Book.new
+    @user = current_user
+  end
+
   def edit
     @user = User.find(params[:id])
   end
