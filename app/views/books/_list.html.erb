@@ -1,4 +1,5 @@
-<!--部分テンプレートとして、book/indexから移動-->
+<!--カリキュラムに沿って、部分テンプレートとして、book/indexから移動-->
+<!--部分テンプレート要る？ってなったので、必要なところはbook/indexに直接記述してみる-->
 <div class="card-list-container py-5">
   <% books.each do |book| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
@@ -12,7 +13,7 @@
       <!--タイトルとかの題名はついていないからデータ部分だけ記述する-->
       <!--一覧画面に詳細画面のリンクを設定-->
       <%= link_to book.title,book_path(book.id) %>
-      <p><%= book.body %></p>
+      <p><%= book.opinion %></p>
       <!--<p><%= book.user.name %></p>-->
     </div>
   </div>

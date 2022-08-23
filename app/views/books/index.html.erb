@@ -1,5 +1,3 @@
-
-
 <!--カリキュラムではuser/showへ記載になっていた部分-->
 <!--successメッセージ-->
 <% if flash[:notice] %>
@@ -10,5 +8,23 @@
 
 
 <!--ユーザの投稿一覧-->
-<!--↑の記述は部分テンプレートへ-->
-<%= render 'list',books: @books %>
+<div>
+  <% @books.each do |book| %>
+    <div class="card-body">
+      <!--userの画像は下の一文で表示できている?-->
+      <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+      <!--一覧画面に詳細画面のリンクを設定-->
+      <%= link_to book.title,book_path(book.id) %>
+      <p><%= book.opinion %></p>
+    </div>
+  <% end %>
+
+    <!--ページネーション-->
+  <%= paginate @books %>
+</div>
+
+
+<!--_list部分テンプレートへ → 部分テンプレートにせずに記述してみる-->
+<!--<%= render 'list',books: @books %>-->
+<!--部分テンプレート_user_infoを呼び出したい。ローカル変数・インスタンス変数はusersでOK？-->
+<%= render 'users/_user_info',{book: @book,user: @user} %>

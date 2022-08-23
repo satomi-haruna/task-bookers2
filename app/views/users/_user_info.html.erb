@@ -1,12 +1,26 @@
 <!--user/show → book/index から移動-->
 <!--ユーザの詳細-->
 <div>
-  <h2><%= "User info" %></h2>
+  <h2>User info</h2>
   <%= image_tag user.get_profile_image(100,100) %>
-  <h3><%= user.name %></h3>
+  <table class="table">
+    <!--@user = User.find(params[:id] コントローラとつながってない-->
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introducrion %></th>
+    </tr>
+  </table>
   <!--↓ログインユーザーIDと、現在のユーザーが一致していたら-->
   <% if user == current_user %>
     <%= link_to edit_user_path(user),class:"btn btn-edit",method: :get do %>
+      <i class="fa-solid fa-user-gear"></i>
+      <!--ログインユーザーが編集ボタンを押したら、users/editへ。
+      ログインユーザー以外のユーザーが編集ボタンを押したら、その人自身のuser.book/indexへ遷移-->
+    <%= link_to book_path,class:"btn btn-edit",method: :get do %>
       <i class="fa-solid fa-user-gear"></i>
     <% end %>
   <% end %>
@@ -29,10 +43,11 @@
   </ul>
 <% end %>
 
-<%= form_with model:@book do |f| %>
+<!--@book = Book.new つながってない-->
+<%= form_with model:book do |f| %>
   <h4>Title</h4>
-    <%= f.text_field  :title %>
+    <%= f.text_field :title %>
   <h4>Opinion</h4>
-    <%= f.text_area :body %>
+    <%= f.text_area :opinion %>
   <%= f.submit 'Create Book' %>
 <% end %>

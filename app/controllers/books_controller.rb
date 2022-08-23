@@ -33,6 +33,9 @@ class BooksController < ApplicationController
   def index
     # ページネーション　すべてのデータではなく1ページ分の数のデータだけ取得する
     @books = Book.page(params[:page])
+    @book = Book.new
+    # userはログインユーザーを取得したい
+    @user = User.find(params[:id])
   end
 
   def show
@@ -50,7 +53,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title,:body)
+    params.require(:book).permit(:title,:opinion)
   end
 
 end
