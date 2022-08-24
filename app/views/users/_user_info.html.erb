@@ -50,7 +50,11 @@
     </div>
     <div class="mb-3">
       <!--btn-successって名前のデザイン-->
-      <button type="button" class="btn btn-success py-2 px-3">Create Book</button>
+      <%= f.submit 'Create Book',class:"btn btn-success" %>
+      <!--<button type="button" class="btn btn-success py-2 px-3">Create Book</button>-->
+      <!--%= link_to @books_path,class:"btn btn-success py-2 px-3" do %>-->
+        <!--<span>Create Book</span>-->
+      <!--% end %>-->
     </div>
   <% end %>
 </div>

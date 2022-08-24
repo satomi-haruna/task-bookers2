@@ -32,7 +32,10 @@
         <!--<p>Opinion</p>-->
         <!--<%= f.text_area :body %>-->
         <div class="form-group">
-          <%= f.submit "Update Book",class:"btn btn-success" %>
+          <!--%= f.submit "Update Book",class:"btn btn-success" %>-->
+          <%= link_to @book.user_path(@book.id),class:"btn btn-success" do %>
+            <span>Update Book</span>
+          <% end %>
         </div>
       <% end %>
 

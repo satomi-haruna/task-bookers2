@@ -18,9 +18,16 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  # nameのデータを保存できるよう、許可を与える
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,keys:[:name])
-  end
+    # nameのデータを保存できるよう、許可を与える
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up,keys:[:name])
+    end
+
+
+  # ログインをnameに変更した際にemailの値が送れなくなっているので、その修正
+  private
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up,keys:[:email])
+    end
 
 end
