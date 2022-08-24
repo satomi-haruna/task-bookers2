@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
 
     def after_sign_in_path_for(resource)
-      books_path
+      user_path(current_user)
     end
 
     # aboutページをサインアウト後の遷移先に設定

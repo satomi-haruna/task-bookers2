@@ -4,6 +4,9 @@ class UsersController < ApplicationController
     # ページネーション　1ページ分の数だけデータを取得する
     @books = @user.books.page(params[:page])
     # ↑　userに紐づいているbookがすべて取得、カラムを特定できないので、カラムの操作はできない
+    # 部分テンプレートのためにbook/index同様に記述
+    @book_new = Book.new
+    @user = current_user
   end
 
   # Usersの表示のためindexを作成

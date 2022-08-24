@@ -8,3 +8,18 @@
 <h1>Aboutページ</h1>
 <!--サインアウト後の遷移先として-->
 <!--topを使うことにします-->
+
+
+<!--↓ をするためにはコントローラでif分岐が必要。資料として置いておく-->
+<!--ログインユーザーが編集ボタンを押したら、users/editへ。
+ログインユーザー以外のユーザーが編集ボタンを押したら、その人自身のuser.book/indexへ遷移-->
+    <!--↓ログインユーザーIDと、現在のユーザーが一致していたら-->
+  <% if user == current_user %>
+    <%= link_to edit_user_path(user.id),class:"btn btn-edit",method: :get do %>
+      <i class="fa-solid fa-user-gear"></i>
+    <% end %>
+  <% else %>
+    <%= link_to user_path(current_user),class:"btn btn-edit",method: :get do %>
+      <i class="fa-solid fa-user-gear"></i>
+    <% end %>
+  <% end %>

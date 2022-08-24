@@ -24,7 +24,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     if @book.update(book_params)
       flash[:notice] = "You have updated book successfully."
-      redirect_to book_path(@book.id)
+      redirect_to user_path(@book.user.id)
     else
       render :edit
     end
@@ -40,6 +40,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @user = User.find(params[:id])
+    @books = @user.books
     # 部分テンプレート用にindexで使用したものと同じものを定義
     @book_new = Book.new
     # @bookで持ってきた特定userの情報がほしい
