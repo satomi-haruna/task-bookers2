@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     # ↑　userに紐づいているbookがすべて取得、カラムを特定できないので、カラムの操作はできない
     # 部分テンプレートのためにbook/index同様に記述
     @book_new = Book.new
-    @user = current_user
   end
 
   # Usersの表示のためindexを作成
@@ -20,6 +19,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+      render :edit
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
