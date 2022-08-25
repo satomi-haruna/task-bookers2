@@ -33,7 +33,7 @@
               <% if @book.user == current_user %>
                 <!--%= link_to "Destroy",book_path(@book),method: :delete %>-->
                 <!--見本ではclassにdestroy_book_idにidが入っている-->
-                <%= link_to book_path(@book),method: :delete,"data-cofirm" => "本当に消しますか？",class:"btn btn-sm btn-danger destroy_book_id" do %>
+                <%= link_to book_path(@book),method: :delete, data: {confirm:"本当に消しますか？"},class:"btn btn-sm btn-danger destroy_book_id" do %>
                   Destroy
                 <% end %>
               <% end %>
