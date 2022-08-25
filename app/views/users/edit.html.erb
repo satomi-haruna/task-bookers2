@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto col-sm-12 col-md-8 col-lg-5 px-sm-0">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>User info</h2>
       <% if @user.errors.any? %>
         <% if @user.errors.count == 1 %>
@@ -18,16 +18,16 @@
 
       <%= form_with model:@user do |f| %>
         <div class="form-group">
-          <label for="inputName">Name</label>
-          <%= f.text_field :name,class:"form-control" %>
+          <label for="user_name">Name</label>
+          <%= f.text_field :name,class:"form-control name" %>
         </div>
         <div class="form-group">
-          <label for="image">Image</label><br>
-          <input type="file" placeholde=:"profile_image" accept:"image/*" >
+          <label for="user_image">Image</label>
+          <%= f.file_field :profile_image,class:"form-control-file user_image",accept:"image/*" %>
         </div>
         <div class="form-group">
-          <label for="inputIntroduction">Introduction</label>
-          <%= f.text_area :introduction,class:"form-control" %>
+          <label for="user_introduction">Introduction</label>
+          <%= f.text_area :introduction,class:"form-control introduction" %>
         </div>
         <div class="form-group">
           <%= f.submit "Update User",class:"btn btn-secondary" %>

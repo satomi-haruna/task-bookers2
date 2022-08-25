@@ -10,29 +10,30 @@
 <!--</div>-->
 
 <div class="container">
-  <div class="row d-flex">
-    <div class="col-11 mx-auto px-3 col-sm-10 col-lg-8 col-xl-6">
-      <h1 class="mb-3">
-        welcome to
+  <div class="row">
+    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+      <h1>welcome to
         <!--本のアイコン-->
-        <i class="fas fa-book"></i>
-        <strong>Bookers</strong>!!
-      </h1>
-      <p class="mb-3">In
-        <span><i class="fas fa-book"></i></span>
-        <strong>Bookers</strong>,
+        <i class="fas fa-book"></i><strong>Bookers</strong> !!</h1>
+      <p>In
+        <i class="fas fa-book"></i><strong>Bookers</strong>,
       </p>
-      <p class="mb-3">you can share and exchange your opinions , inpressions ,and emotions</p>
-      <p class="mb-3">about various books!</p>
+      <p>you can share and exchange your opinions , inpressions , and emotions</p>
+      <p> about various books!</p>
 
-      <div class="flex-wrap mx-auto px-3">
-        <p><%= link_to new_user_session_path,class:"btn btn-info btn-sm btn-block mb-3" do %>
-          <span>Log in</span>
-        <% end %></p>
-        <p><%= link_to new_user_registration_path,class:"btn btn-success btn-sm btn-block mb-3" do %>
-          <span>Sign up</span>
-        <% end %></p>
+      <div class="btn-wrapper col-10 mx-auto">
+        <div class="row">
+          <%= link_to new_user_session_path,class:"btn btn-info btn-sm btn-block mb-3 sign_in" do %>
+            Log in
+          <% end %>
+        </div>
+        <div class="row">
+          <%= link_to new_user_registration_path,class:"btn btn-success btn-sm btn-block sign_up" do %>
+            Sign up
+          <% end %>
+        </dev>
       </div>
+
     </div>
   </div>
 </div>
