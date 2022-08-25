@@ -13,7 +13,7 @@
       <!--タイトルとかの題名はついていないからデータ部分だけ記述する-->
       <!--一覧画面に詳細画面のリンクを設定-->
       <%= link_to book.title,book_path(book.id) %>
-      <p><%= book.opinion %></p>
+      <p><%= book.body %></p>
       <!--<p><%= book.user.name %></p>-->
     </div>
   </div>
@@ -22,3 +22,18 @@
   <!--ページネーション-->
   <%= paginate books %>
 </div>
+
+
+<!--↓ をするためにはコントローラでif分岐が必要。資料として置いておく-->
+<!--ログインユーザーが編集ボタンを押したら、users/editへ。
+ログインユーザー以外のユーザーが編集ボタンを押したら、その人自身のuser.book/indexへ遷移-->
+    <!--↓ログインユーザーIDと、現在のユーザーが一致していたら-->
+  <!--% if user == current_user %>-->
+    <!--%= link_to edit_user_path(user.id),class:"btn btn-edit",method: :get do %>-->
+      <!--<i class="fa-solid fa-user-gear"></i>-->
+    <!--% end %>-->
+  <!--% else %>-->
+    <!--%= link_to user_path(current_user),class:"btn btn-edit",method: :get do %>-->
+      <!--<i class="fa-solid fa-user-gear"></i>-->
+    <!--% end %>-->
+  <!--% end %>-->

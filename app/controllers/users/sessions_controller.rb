@@ -14,14 +14,14 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  def destroy
-    super
-    if destroy
-      flash[:notice] = "Signed out successfully."
-    else
-      flash[:notice] = "Signed out failed."
-    end
-  end
+  # def destroy
+    # super
+    # if destroy
+      # flash[:notice] = "Signed out successfully."
+    # else
+      # flash[:notice] = "Signed out failed."
+    # end
+  # end
 
   # protected
 

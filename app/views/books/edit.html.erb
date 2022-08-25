@@ -20,22 +20,13 @@
       <%= form_with model:@book do |f| %>
         <div class="form-group">
           <label for="title">Title</label>
-          <input type="text" class="form-control" autofocus="true" value="<% @book.title %>"><!--placeholder:"名前" 入力前に自動的に入る文言-->
-        </div>
-        <!--<p>Title</p>-->
-        <!--<%= f.text_field :title,autofocus:true %> <!--id:inputTitleいるかな？、placeholder:"名前" 入力前に自動的に入る文言?-->
+          <%= f.text_field :title,class:"form-control" %>
         <div class="form-group">
-          <label for="opinion">Opinion</label>
-          <!--自己紹介文、id:"introduction"とか入れるのかな？-->
-          <textarea class="form-control" value="<% @book.opinion %>"></textarea>
+          <label for="body">Opinion</label>
+          <%= f.text_area :body,class:"form-control" %>
         </div>
-        <!--<p>Opinion</p>-->
-        <!--<%= f.text_area :body %>-->
         <div class="form-group">
-          <!--%= f.submit "Update Book",class:"btn btn-success" %>-->
-          <%= link_to @book.user_path(@book.id),class:"btn btn-success" do %>
-            <span>Update Book</span>
-          <% end %>
+          <%= f.submit "Update Book",class:"btn btn-success" %>
         </div>
       <% end %>
 

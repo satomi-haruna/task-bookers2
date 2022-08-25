@@ -1,60 +1,47 @@
 <!--user/show → book/index から移動-->
 <!--ユーザの詳細-->
-<div class="col-md-3 px-3">
-  <h2 class="mb-1">User info</h2>
+<div class="col-md-3">
+  <h2>User info</h2>
   <%= image_tag user.get_profile_image(100,100) %>
-  <table class="table mb-3">
-    <!--@user = User.find(params[:id] コントローラとつながってない-->
-    <tr>
-      <th style="width:94px;">name</th>
-      <th><%= user.name %></th>
-    </tr>
-    <tr>
-      <th style="width:94px;">introduction</th>
-      <th><%= user.introduction %></th>
-    </tr>
+  <table class="table">
+    <tbody>
+      <tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </tbody>
   </table>
   <div class="row">
     <!--btn-outline-secondaryで灰色の枠線-->
-    <%= link_to edit_user_path(user.id),class:"btn btn-outline-secondary btn-block py-2 px-3" do %>
-      <span>アイコン<i class="fa-solid fa-user-gear"></i></span>
+    <%= link_to edit_user_path(user.id),class:"btn btn-outline-secondary btn-block" do %>
+      <span><i class="fas fa-user-cog"></i></span>
     <% end %>
   </div>
 
 
   <!--book/new.html.erbから移動-->
-  <h2 class="mt-3 mb-2">New book</h2>
-  <!--エラー表示。1つならerror、複数ならerrors-->
-  <% if book_new.errors.any? %>
-    <% if book_new.errors.count == 1 %>
-      <%= book_new.errors.count %> error prohibited this obj from being saved:
-    <% else %>
-      <%= book_new.errors.count %> errors prohibited this obj from being saved:
-    <% end %>
-    <ul>
-      <% book_new.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <h2 class="mt-3">New book</h2>
 
   <!--@book = Book.new つながってない-->
   <%= form_with model:book_new do |f| %>
     <div class="mb-3">
-      <p class="mb-2">Title</p>
-      <p><%= f.text_field :title %></p>
-    </div>
-    <div class="mb-3">
-      <label class="mb-2">Opinion</label>
-      <text_area class="py-3 px-2"><%= f.text_area :opinion %></text_area>
-    </div>
-    <div class="mb-3">
-      <!--btn-successって名前のデザイン-->
-      <%= f.submit 'Create Book',class:"btn btn-success" %>
-      <!--<button type="button" class="btn btn-success py-2 px-3">Create Book</button>-->
-      <!--%= link_to @books_path,class:"btn btn-success py-2 px-3" do %>-->
-        <!--<span>Create Book</span>-->
-      <!--% end %>-->
+      <div class="form-group mb-3">
+        <label for="book_title" class="mb-2">Title</label>
+        <%= f.text_field :title,class:"form-control" %>
+      </div>
+      <div class="form-group mb-3">
+        <label for="book_body" class="mb-2">Opinion</label>
+        <%= f.text_area :body,class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <!--btn-successって名前のデザイン-->
+        <%= f.submit "Update Book",class:"btn btn-success" %>
+      </div>
     </div>
   <% end %>
 </div>

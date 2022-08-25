@@ -4,8 +4,7 @@ class Book < ApplicationRecord
 
   # バリデーションの設定
   validates :title,presence:true
-  validates :opinion,presence:true
-  validates :opinion,length:{maximum:200}
+  validates :body,length:{maximum:200},presence:true
 
 
   def get_image
@@ -16,11 +15,5 @@ class Book < ApplicationRecord
     image
   end
 
-
-  def destroy
-    @book = Book.find(params[:id])
-    @book.destroy
-    redirect_to books_path
-  end
 
 end

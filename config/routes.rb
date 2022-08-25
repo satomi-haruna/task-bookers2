@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  # get 'home/about'
+  # get 'home/top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # get 'homes/top'
-  root to: "homes#top"
+  root to: "home#top"
   devise_for :users
 
   # get 'books/new'
@@ -13,6 +15,6 @@ Rails.application.routes.draw do
   # get 'users/edit'
   resources :users,only:[:show,:edit,:update,:index]
 
-  get "homes/about" => "homes#about",as:'about'
+  get "home/about" => "home#about",as:'about'
 
 end
